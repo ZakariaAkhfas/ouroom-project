@@ -92,7 +92,7 @@
 			<div class="ui relaxed divided list">
 				@foreach($feed as $ff)
 					@foreach($ff as $d)
-						@if($d->deadline <= Carbon\Carbon::today()->addDays(7))
+						@if($d->deadline <= Carbon\Carbon::today()->addDays(7) && $d->deadline >= Carbon\Carbon::today())
 							<div class="item" style="padding-bottom: 10px;">
 								<div class="padding-all0">
 									<h5 class="padding-list" style="font-weight: bold;">{{StudentClass::where('id', '=', $d->class_id)->value('class_name')}}</h5>

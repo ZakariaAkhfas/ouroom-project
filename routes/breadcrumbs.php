@@ -4,6 +4,7 @@
 
 use App\Model\StudentClass\StudentClass;
 use App\Model\StudentClass\Feed;
+use App\Model\User\User;
 
 Breadcrumbs::for('home', function ($trail) {
     $trail->push('Home', route('home'));
@@ -63,6 +64,13 @@ Breadcrumbs::for('list-student-class', function ($trail, $id_kelas) {
     $trail->push($nama_kelas->class_name, route('student-class', $id_kelas));
 });
 
+Breadcrumbs::for('rekap-tugas', function ($trail, $id_kelas) {
+    $nama_kelas = StudentClass::findOrFail($id_kelas);
+    $trail->parent('student-class');
+    $trail->push($nama_kelas->class_name, route('list-student-class', $id_kelas));
+    $trail->push('Rekap Tugas', route('rekap-tugas', $id_kelas));
+});
+
 // Feed
 Breadcrumbs::for('class-feed', function ($trail, $id_kelas, $id_feed) {
     $nama_kelas = StudentClass::findOrFail($id_kelas);
@@ -95,15 +103,19 @@ Breadcrumbs::for('siswa-class', function ($trail, $id_kelas) {
     $trail->push('Siswa Kelas', route('siswa-class', $id_kelas));
 });
 
+Breadcrumbs::for('tugas-siswa', function ($trail, $id_kelas, $siswa_id) {
+    $nama_kelas = StudentClass::findOrFail($id_kelas);
+    $nama_siswa = User::findOrFail($siswa_id);
+    $trail->parent('student-class');
+    $trail->push($nama_kelas->class_name, route('list-student-class', $id_kelas));
+    $trail->push('Siswa Kelas', route('siswa-class', $id_kelas));
+    $trail->push($nama_siswa->full_name, route('tugas-siswa', [$id_kelas, $siswa_id]));
+});
+
 // Siswa
 Breadcrumbs::for('siswa', function ($trail) {
     $trail->push('Siswa', route('siswa'));
 });
-
-// Breadcrumbs::for('create-siswa', function ($trail) {
-//     $trail->parent('siswa');
-//     $trail->push('Tambah Siswa', route('siswa'));
-// });
 
 // Role dan Permission
 Breadcrumbs::for('role', function ($trail) {
@@ -120,26 +132,6 @@ Breadcrumbs::for('update-role', function ($trail,$role) {
     $trail->push('Update ('.Role::findOrFail($role)->name.')', route('role', Role::findOrFail($role)->name));
 });
 
-// Iqro
-Breadcrumbs::for('iqro', function ($trail) {
-    $trail->push('Iqro', route('iqro'));
-});
-
-Breadcrumbs::for('create-iqro', function ($trail) {
-    $trail->parent('iqro');
-    $trail->push('Tambah Iqro', route('iqro'));
-});
-
-// Alquran
-Breadcrumbs::for('alquran', function ($trail) {
-    $trail->push('Alquran', route('alquran'));
-});
-
-Breadcrumbs::for('create-alquran', function ($trail) {
-    $trail->parent('alquran');
-    $trail->push('Tambah alquran', route('alquran'));
-});
-
 // Profile
 Breadcrumbs::for('profile', function ($trail) {
     $trail->push('Profile Pengguna', route('profile'));
@@ -153,21 +145,6 @@ Breadcrumbs::for('assessment', function ($trail) {
 Breadcrumbs::for('create-assessment', function ($trail) {
     $trail->parent('assessment');
     $trail->push('Penilaian Hafalan', route('assessment'));
-});
-
-// Daily Report
-Breadcrumbs::for('daily-report', function ($trail) {
-    $trail->push('Laporan harian', route('daily-report'));
-});
-
-// Student Report
-Breadcrumbs::for('student-report', function ($trail) {
-    $trail->push('Laporan Per Siswa / Siswi', route('student-report'));
-});
-
-// Student Lack Report
-Breadcrumbs::for('student-lack-report', function ($trail) {
-    $trail->push('Laporan Tanggungan Siswa / Siswi', route('student-lack-report'));
 });
 
 // Action Log

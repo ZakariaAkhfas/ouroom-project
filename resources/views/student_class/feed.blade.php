@@ -102,7 +102,9 @@
                     @if($f->kategori == 'Ujian')
                         <div class="ui red ribbon huge label">{{$f->kategori}}</div>
                     @endif
-                    <div class="ui red large label deadline">{{ date('d-m-Y',strtotime($f->deadline)) }}</div>
+                    @if($f->deadline != null)
+                        <div class="ui red large label deadline">{{ date('d-m-Y',strtotime($f->deadline)) }}</div>
+                    @endif
                     <a class="ui top right attached huge label">
                         <span class="date-post">{{ date('d-m-Y',strtotime($f->created_at)) }}</span>
                     </a>

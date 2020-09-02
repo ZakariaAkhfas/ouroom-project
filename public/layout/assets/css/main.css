@@ -100,6 +100,7 @@ input[type="date"] {
 .btn-edit{
     float: right;
     font-size: 15px !important;
+    min-width: 151px;
 }
 .btn-bottom-right{
     text-align: center !important;

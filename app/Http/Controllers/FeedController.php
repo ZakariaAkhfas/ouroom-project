@@ -101,6 +101,28 @@ class FeedController extends Controller
         return redirect()->back()->with('alert_success', 'Berhasil keluar kelas.');
     }
 
+    public function rekapTugasSiswa(Request $request)
+    {
+        $id_kelas = $request->id_kelas;
+        $id_siswa = $request->siswa_id;
+        $data_tugas = DB::table('tbl_tugas')
+            ->where('siswa_id', $id_siswa)
+            ->where('class_id', $id_kelas)
+            ->get();
+        return view('student_class.tugas_siswa', ['active' => 'student_class', 'data_tugas' => $data_tugas]);
+    }
+
+    public function rekapTugasClass(Request $request)
+    {
+        $id_user = Auth::id();
+        $id_kelas = $request->id_kelas;
+        $data_tugas = DB::table('tbl_tugas')
+            ->where('siswa_id', $id_user)
+            ->where('class_id', $id_kelas)
+            ->get();
+        return view('student_class.rekap_tugas', ['active' => 'student_class', 'data_tugas' => $data_tugas]);
+    }
+
     public function showFeed(Request $request)
     {
         $id_kelas = $request->id_kelas;
@@ -162,8 +184,9 @@ class FeedController extends Controller
                 return Datatables::of($du->hasUser)
                     ->addIndexColumn()
                     ->addColumn('action', function ($row) {
+                        $tugas = '<button onclick="btnTgs(' . $row->id . ')" name="btnTgs" type="button" class="ui big inverted primary button"><span class="glyphicon glyphicon-file"></span></button>';
                         $delete = '<button onclick="btnDel(' . $row->id . ')" name="btnDel" type="button" class="ui big red button"><span class="glyphicon glyphicon-trash"></span></button>';
-                        return $delete;
+                        return $tugas . '&nbsp' .$delete;
                     })
                     ->rawColumns(['action'])
                     ->make(true);
@@ -178,7 +201,7 @@ class FeedController extends Controller
 
     public function deleteSiswaClass(Request $request)
     {
-        $id_kelas = $request->id;
+        $id_kelas = $request->id_kelas;
         if ($request->ajax()) {
             $user = User::findOrFail($request->iduser);
             $user->hasClass()->detach($id_kelas);

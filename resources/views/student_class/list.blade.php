@@ -49,7 +49,7 @@
 		@if($user->account_type == User::ACCOUNT_TYPE_SISWA)
 			<form action="{{ route('keluar-class', ['id_kelas'=>$id_kelas]) }}" method="POST">
 				@csrf
-				<button type="submit" class="ui big inverted primary button btn-edit">
+				<button type="submit" class="ui big red button btn-edit">
 					KELUAR KELAS
 				</button>
 			</form>
@@ -59,11 +59,16 @@
 				<div class="sub header sub-class-attribute">{{User::where('id', '=', $dk->teacher_id)->value('full_name')}}</div>
 				<div class="sub header sub-class-attribute2">{{$dk->note}}</div>
 				<button id="token" class="ui big button token" value="{{$dk->token}}" onclick="copyToken()" onmouseout="outFunc()"><span>{{$dk->token}}</span></button>
+				@if($user->account_type == User::ACCOUNT_TYPE_SISWA)
+					<a href="{{ route('rekap-tugas', ['id_kelas'=>$id_kelas]) }}" class="ui big inverted primary button btn-edit">
+						REKAP TUGAS
+					</a>
+				@endif
 			</h1>
 	@endforeach
 	<hr style="border-top: 1px solid #c6c6c6">
 	@if($user->account_type == User::ACCOUNT_TYPE_CREATOR || $user->account_type == User::ACCOUNT_TYPE_ADMIN || $user->account_type == User::ACCOUNT_TYPE_TEACHER)
-		<form method="POST" action="{{ route('upload-feed',['id_kelas'=>$id_kelas]) }}" class="upload-container" enctype="multipart/form-data">
+		<form method="POST" action="{{ route('upload-feed', ['id_kelas'=>$id_kelas]) }}" class="upload-container" enctype="multipart/form-data">
 
 			@csrf
 

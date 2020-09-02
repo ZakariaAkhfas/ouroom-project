@@ -33,20 +33,20 @@
 @endsection
 
 @section('content')
-        <div class="table-responsive">
-            <table id="siswa_table" class="table table-bordered data-table display nowrap" style="width:100%">
-                <thead>
-                    <tr>
-                        <th style="text-align: center">Nama</th>
-                        <th style="text-align: center">Jurusan</th>
-                        <th style="text-align: center">Angkatan</th>
-                        <th style="text-align: center" width="50px">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
+    <div class="table-responsive">
+        <table id="siswa_table" class="table table-bordered data-table display nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th style="text-align: center">Nama</th>
+                    <th style="text-align: center">Jurusan</th>
+                    <th style="text-align: center">Angkatan</th>
+                    <th style="text-align: center" width="50px">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
 @endsection
 
 @section('modal')
@@ -143,6 +143,13 @@
                 });
             }
             });
+        }
+
+        function btnTgs(id){
+            iduser = id;
+            idkelas = "{{ $id_kelas }}";
+            url = '/student-class/' + idkelas + '/siswa-class/' + iduser;
+            window.location.href = url;
         }
     </script>
 @endpush
