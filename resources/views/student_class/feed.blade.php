@@ -113,7 +113,7 @@
                     <br>
                     <span class="judul" style="font-weight:bold">{{ $nilai }}/100</span>
                 @endif
-                <pre class="detail-section2">{{ $f->detail }}</pre>
+                <pre class="detail-section2 padding-rl0">{{ $f->detail }}</pre>
                 @if($f->file != null)
                     <div class="ui blue segment">
                         <h5>

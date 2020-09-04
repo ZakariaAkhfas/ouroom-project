@@ -62,10 +62,10 @@
 		<table class="table table-bordered data-table display nowrap" style="width:100%">
 		<thead>
 		    <tr>
-		        <th>Title Notifikasi</th>
-		        <th>Isi Notifikasi</th>
-		        <th>Tanggal Notifikasi</th>
-		        <th>Jenis Notifikasi</th>
+		        <th style="text-align: center">Title Notifikasi</th>
+		        <th style="text-align: center">Isi Notifikasi</th>
+		        <th style="text-align: center">Tanggal Notifikasi</th>
+		        <th style="text-align: center">Jenis Notifikasi</th>
 		    </tr>
 		</thead>
 		<tbody>

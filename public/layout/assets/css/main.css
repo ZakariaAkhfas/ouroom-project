@@ -7,6 +7,13 @@ import 'file-upload-with-preview/dist/file-upload-with-preview.min.css';
     padding-right: 10px !important;
     padding-left: 10px !important;
 }
+.padding-l0{
+    padding-left: 0 !important;
+}
+.padding-rl0{
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
 .padding-all0{
     padding: 0 !important;
 }

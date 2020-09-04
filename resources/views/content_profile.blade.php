@@ -1,7 +1,7 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8 padding-r-0">
                 @yield('alert')
                 <div class="card">
                     <div class="header">   
@@ -13,7 +13,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 padding-r-0">
                 <div class="card">
                     <div class="header">   
                         @yield('title')

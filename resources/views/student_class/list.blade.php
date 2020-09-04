@@ -128,7 +128,7 @@
 					<span class="date-post">{{ date('d-m-Y',strtotime($df->created_at)) }}</span>
 				</a>
 			</div>
-			<pre class="detail-section">{{$df->detail}}</pre>
+			<pre class="detail-section padding-all0">{{$df->detail}}</pre>
 			<a href="{{ route('class-feed', ['id_kelas'=>$id_kelas, 'id_feed'=>$df->id]) }}" class="ui bottom attached big button btnfeed">
 				Lihat
 			</a>
