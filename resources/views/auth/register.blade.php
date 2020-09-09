@@ -35,11 +35,11 @@
                     </select>
                 </div>
                 <div class="wrap-input100">
-                    <select class="form-control" name="jurusan" style="background-color: #e6e6e6; padding: 0 20px; border-radius: 0px; height: 48px">
-                        <option selected="true" disabled="disabled">Jurusan</option> 
-                        <option value="Pemasaran">Pemasaran</option>
-                        <option value="Pariwisata">Pariwisata</option>
-                        <option value="Peternakan">Peternakan</option>
+                    <select class="form-control" name="kelas" style="background-color: #e6e6e6; padding: 0 20px; border-radius: 0px; height: 48px">
+                        <option selected="true" disabled="disabled">Kelas</option> 
+                        <option value="BDP">BDP</option>
+                        <option value="UPW">UPW</option>
+                        <option value="ATU">ATU</option>
                     </select>
                 </div>
                 <div class="wrap-input100">

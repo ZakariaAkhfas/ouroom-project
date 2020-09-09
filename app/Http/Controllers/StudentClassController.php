@@ -103,11 +103,11 @@ class StudentClassController extends Controller
         $token_kelas = $request->get('token');
         $user_data = DB::table('tbl_user')
             ->where('id', $id_user)
-            ->select('angkatan', 'jurusan')
+            ->select('angkatan', 'kelas')
             ->get();
         $class_data = DB::table('tbl_class')
             ->where('token', $token_kelas)
-            ->select('angkatan', 'jurusan')
+            ->select('angkatan', 'kelas')
             ->get();
         $id_kelas = DB::table('tbl_class')
             ->where('token', $token_kelas)
@@ -116,7 +116,7 @@ class StudentClassController extends Controller
             $user->hasClass()->syncWithoutDetaching($id_kelas);
             return redirect()->back()->with('alert_success', 'Berhasil Join Kelas');
         } else {
-            return redirect()->back()->with('alert_error', 'Hanya bisa join kelas dengan Jurusan dan Angkatan yang sama.');
+            return redirect()->back()->with('alert_error', 'Hanya bisa join kelas dengan Kelas dan Angkatan yang sama.');
         }
     }
 
@@ -138,7 +138,7 @@ class StudentClassController extends Controller
             $student_class = StudentClass::findOrFail($request->get('idclass'));
             $student_class->class_name = $request->get('class_name');
             $student_class->angkatan = $request->get('angkatan');
-            $student_class->jurusan = $request->get('jurusan');
+            $student_class->kelas = $request->get('kelas');
             $student_class->note = $request->get('note');
             $student_class->teacher_id = $request->get('teacher_id');
             if (!$student_class->save()) {
@@ -162,7 +162,7 @@ class StudentClassController extends Controller
             $student_class = new StudentClass();
             $student_class->class_name = $request->get('class_name');
             $student_class->angkatan = $request->get('angkatan');
-            $student_class->jurusan = $request->get('jurusan');
+            $student_class->kelas = $request->get('kelas');
             $student_class->note = $request->get('note');
             $student_class->teacher_id = $request->get('teacher_id');
             $student_class->token = str_random(8);
@@ -171,7 +171,7 @@ class StudentClassController extends Controller
             $student_class = new StudentClass();
             $student_class->class_name = $request->get('class_name');
             $student_class->angkatan = $request->get('angkatan');
-            $student_class->jurusan = $request->get('jurusan');
+            $student_class->kelas = $request->get('kelas');
             $student_class->note = $request->get('note');
             $student_class->teacher_id = Auth::id();
             $student_class->token = str_random(8);

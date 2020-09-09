@@ -15,7 +15,7 @@ class CreateClassTable extends Migration {
             $table->bigIncrements('id', 20);
             $table->string('class_name');
             $table->string('angkatan');
-            $table->string('jurusan');
+            $table->string('kelas');
             $table->string('note')->nullable();
             $table->unsignedBigInteger('teacher_id');
             $table->string('token')->unique();

@@ -65,16 +65,10 @@
     <div class="form-group">
       <label>Angkatan</label>
       <input disabled="true" type="text" value="{{ $data_user->angkatan }}" class="form-control" value="" name="agkatan">
-      @if ($errors->has('email'))
-          <div class="error"><p style="color: red"><span>&#42;</span> {{ $errors->first('angkatan') }}</p></div>
-      @endif
     </div>
     <div class="form-group">
-      <label>Jurusan</label>
-      <input disabled="true" type="text" value="{{ $data_user->jurusan }}" class="form-control" value="" name="jurusan">
-      @if ($errors->has('email'))
-          <div class="error"><p style="color: red"><span>&#42;</span> {{ $errors->first('jurusan') }}</p></div>
-      @endif
+      <label>Kelas</label>
+      <input disabled="true" type="text" value="{{ $data_user->kelas }}" class="form-control" value="" name="kelas">
     </div>
     @endif
 

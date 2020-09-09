@@ -43,7 +43,7 @@
     <table id="user_table" class="table table-bordered data-table display nowrap" style="width:100%">
       <thead>
         <tr>
-          <th style="text-align: center">Nama</th>
+          <th style="text-align: center;" width="300">Nama</th>
           <th style="text-align: center">Username</th>
           <th style="text-align: center">Email</th>
           <th style="text-align: center">Account Type</th>

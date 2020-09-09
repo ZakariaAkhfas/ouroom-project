@@ -126,7 +126,7 @@ class UserController extends Controller
         $user->full_name = $request->get('full_name');
         $user->email = $request->get('email');
         $user->jenis_kelamin = $request->get('jenis_kelamin');
-        $user->jurusan = $request->get('jurusan');
+        $user->kelas = $request->get('kelas');
         $user->angkatan = $request->get('angkatan');
         $user->username = $request->get('username');
         $user->password = $request->get('password');
@@ -188,7 +188,7 @@ class UserController extends Controller
             $user->email = $request->get('email');
             $user->full_name = $request->get('full_name');
             $user->angkatan = $request->get('angkatan');
-            $user->jurusan = $request->get('jurusan');
+            $user->kelas = $request->get('kelas');
             $old_account_type = $user->account_type;
             $user->account_type = $request->get('account_type');
             if (!$user->save()) {

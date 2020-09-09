@@ -1,7 +1,5 @@
 <?php
 
-// Home
-
 use App\Model\StudentClass\StudentClass;
 use App\Model\StudentClass\Feed;
 use App\Model\User\User;

@@ -44,11 +44,11 @@
 			@endif
         </div>
 		<div class="form-group">
-            <label>Jurusan</label>
-            <select class="form-control" name="jurusan">
-				<option value="Pemasaran">Pemasaran</option>
-				<option value="Pariwisata">Pariwisata</option>
-        	    <option value="Peternakan">Peternakan</option>
+            <label>Kelas</label>
+            <select class="form-control" name="kelas">
+				<option value="BDP">BDP</option>
+				<option value="UPW">UPW</option>
+        	    <option value="ATU">ATU</option>
             </select>
         </div>
 		<div class="form-group">

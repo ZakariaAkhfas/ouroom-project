@@ -43,8 +43,8 @@
       <thead>
         <tr>
           <th style="text-align: center">Nama</th>
-          <th style="text-align: center">Jurusan</th>
           <th style="text-align: center">Angkatan</th>
+          <th style="text-align: center">Kelas</th>
           <th style="text-align: center">Username</th>
           <th style="text-align: center">Email</th>
           <th style="text-align: center; width: 100px">Action</th>
@@ -81,11 +81,11 @@
           <input type="text" class="form-control" value="" id="nama_lengkap">
         </div>
         <div class="form-group">
-          <label>Jurusan</label>
-          <select class="form-control" id="jurusan">
-            <option value="Pemasaran">Pemasaran</option>
-            <option value="Pariwisata">Pariwisata</option>
-            <option value="Peternakan">Peternakan</option>
+          <label>Kelas</label>
+          <select class="form-control" id="kelas">
+            <option value="BDP">BDP</option>
+            <option value="UPW">UPW</option>
+            <option value="ATU">ATU</option>
           </select>
         </div>
         <div class="form-group">
@@ -150,8 +150,8 @@
 
     function clearAll() {
       $('#nama_lengkap').val('');
-      $('#jurusan').val('');
       $('#angkatan').val('');
+      $('#kelas').val('');
       $('#username').val('');
       $('#email').val('');
     }
@@ -170,12 +170,12 @@
             name: 'full_name'
           },
           {
-            data: 'jurusan',
-            name: 'jurusan'
-          },
-          {
             data: 'angkatan',
             name: 'angkatan'
+          },
+          {
+            data: 'kelas',
+            name: 'kelas'
           },
           {
             data: 'username',
@@ -278,8 +278,8 @@
           $('#username').val(data.data.username);
           $('#email').val(data.data.email);
           $('#nama_lengkap').val(data.data.full_name);
-          $('#jurusan').val(data.data.jurusan);
           $('#angkatan').val(data.data.angkatan);
+          $('#kelas').val(data.data.kelas);
           $('#tipe_akun').val(data.data.account_type);
         }
       });
@@ -339,8 +339,8 @@
         var username = $('#username').val();
         var email = $('#email').val();
         var full_name = $('#nama_lengkap').val();
-        var jurusan = $('#jurusan').val();
         var angkatan = $('#angkatan').val();
+        var kelas = $('#kelas').val();
         var account_type = $('#tipe_akun').val();
         $.ajax({
           type: 'POST',
@@ -351,8 +351,8 @@
             username: username,
             email: email,
             full_name: full_name,
-            jurusan: jurusan,
             angkatan: angkatan,
+            kelas: kelas,
             account_type: account_type
           },
           success: function(data) {

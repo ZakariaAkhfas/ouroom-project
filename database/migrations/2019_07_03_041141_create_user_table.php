@@ -20,7 +20,7 @@ class CreateUserTable extends Migration {
             $table->string('email')->nullable()->unique();
             $table->string('jenis_kelamin')->nullable();
             $table->unsignedBigInteger('angkatan')->nullable();
-            $table->string('jurusan')->nullable();
+            $table->string('kelas')->nullable();
             $table->string('profile_picture')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

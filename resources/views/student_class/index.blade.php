@@ -53,7 +53,7 @@
                   <th style="text-align: center">Kelas</th>
                   <th style="text-align: center">Guru</th>
                   <th style="text-align: center">Angkatan</th>
-                  <th style="text-align: center">Jurusan</th>
+                  <th style="text-align: center">Kelas</th>
                   <th style="text-align: center">Token</th>
                   <th style="text-align: center; width: 50px">Action</th>
               </tr>
@@ -85,7 +85,7 @@
               {{$dk->angkatan}}
             </div>
             <div class="left floated author">
-              {{$dk->jurusan}}
+              {{$dk->kelas}}
             </div>
           </div>
         </a>
@@ -134,7 +134,7 @@
               {{$c->angkatan}}
             </div>
             <div class="left floated author">
-              {{$c->jurusan}}
+              {{$c->kelas}}
             </div>
           </div>
         </a>
@@ -180,8 +180,8 @@
             </select>
           </div>
           <div class="form-group">
-            <label>Jurusan</label>
-            <select id="jurusan" class="form-control" name="jurusan">
+            <label>Kelas</label>
+            <select id="kelas" class="form-control" name="kelas">
               <option value="Pemasaran">Pemasaran</option>
               <option value="Pariwisata">Pariwisata</option>
               <option value="Peternakan">Peternakan</option>
@@ -214,7 +214,7 @@
       $('#class_name').val('');
       $("#guru").val([]).trigger("change");
       $('#angkatan').val('');
-      $('#jurusan').val('');
+      $('#kelas').val('');
       $('#token').val('');
       $('#note').val('');
     }
@@ -235,7 +235,7 @@
             $('#class_name').val(data.data.class_name);
             $('#guru').val(data.data.teacher.id).trigger('change');
             $('#angkatan').val(data.data.angkatan);
-            $('#jurusan').val(data.data.jurusan);
+            $('#kelas').val(data.data.kelas);
             $('#note').val(data.data.note);
         }
       });
@@ -247,7 +247,7 @@
 
       $('#update_data').click(function() {
           var angkatan = $('#angkatan').val();
-          var jurusan = $('#jurusan').val();
+          var kelas = $('#kelas').val();
           var teacher_id = $('#guru').val();
           var class_name = $('#class_name').val();
           var note = $('#note').val();
@@ -259,7 +259,7 @@
                   idclass:idclass, 
                   "_token": "{{ csrf_token() }}",
                   angkatan : angkatan,
-                  jurusan : jurusan,
+                  kelas : kelas,
                   teacher_id : teacher_id,
                   class_name : class_name,
                   note : note
@@ -277,7 +277,7 @@
               table.ajax.reload();
             },
             error: function(error) {
-              swal('Terjadi kegagalan, pastikan jurusan dan guru diinput.', { button:false, icon: "error", timer: 1000});
+              swal('Terjadi kegagalan, pastikan kelas dan guru diinput.', { button:false, icon: "error", timer: 1000});
               console.log(data);
             }
           });
@@ -318,7 +318,7 @@
               {data: 'class_name', name: 'class_name'},
               {data: 'guru', name: 'guru'},
               {data: 'angkatan', name: 'angkatan'},
-              {data: 'jurusan', name: 'jurusan'},
+              {data: 'kelas', name: 'kelas'},
               {data: 'token', name: 'token'},
               {data: 'action', name: 'action', orderable: false, searchable: false},
           ]

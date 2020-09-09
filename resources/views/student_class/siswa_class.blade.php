@@ -37,9 +37,9 @@
         <table id="siswa_table" class="table table-bordered data-table display nowrap" style="width:100%">
             <thead>
                 <tr>
-                    <th style="text-align: center">Nama</th>
-                    <th style="text-align: center">Jurusan</th>
+                    <th style="text-align: center" width="400px">Nama</th>
                     <th style="text-align: center">Angkatan</th>
+                    <th style="text-align: center">Kelas</th>
                     <th style="text-align: center" width="50px">Action</th>
                 </tr>
             </thead>
@@ -63,8 +63,8 @@
 
         function clearAll() {
             $('#nama').val('');
-            $('#jurusan').val('');
             $('#angkatan').val('');
+            $('#kelas').val('');
         }
 
         $(function() {
@@ -81,12 +81,12 @@
                     name: 'full_name'
                 },
                 {
-                    data: 'jurusan',
-                    name: 'jurusan'
-                },
-                {
                     data: 'angkatan',
                     name: 'angkatan'
+                },
+                {
+                    data: 'kelas',
+                    name: 'kelas'
                 },
                 {
                     data: 'action',

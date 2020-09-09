@@ -75,8 +75,8 @@
                 <input type="text" class="form-control" value="{{User::where('id', $dt->siswa_id)->value('full_name')}}" name="nama_siswa" disabled>
             </div>
             <div class="form-group">
-                <label>Jurusan</label>
-                <input type="text" class="form-control" value="{{User::where('id', $dt->siswa_id)->value('jurusan')}}" name="jurusan" disabled>
+                <label>Kelas</label>
+                <input type="text" class="form-control" value="{{User::where('id', $dt->siswa_id)->value('kelas')}}" name="kelas" disabled>
             </div>
             <div class="form-group">
                 <label>Angkatan</label>

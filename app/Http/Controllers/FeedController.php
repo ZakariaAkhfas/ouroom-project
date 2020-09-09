@@ -312,7 +312,7 @@ class FeedController extends Controller
         DB::table('tbl_class')->where('id', $id)->update([
             'class_name' => $request->class_name,
             'angkatan' => $request->angkatan,
-            'jurusan' => $request->jurusan,
+            'kelas' => $request->kelas,
             'note' => $request->note
         ]);
         return redirect()->back()->with('alert_success', 'Data Berhasil Disimpan');

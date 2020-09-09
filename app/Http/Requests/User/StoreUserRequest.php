@@ -23,7 +23,7 @@ class StoreUserRequest extends FormRequest{
         return [
             'full_name'     => 'required|string|max:255',
             'email'         => 'required|email|unique:tbl_user',
-            'jurusan'       => 'nullable|string',
+            'kelas'       => 'nullable|string',
             'username'      => 'required|min:5|unique:tbl_user',
             'address'       => 'nullable|string',
             'profile_picture' => 'nullable|string',

@@ -28,7 +28,7 @@ class User extends Authenticatable
     const ACCOUNT_TYPE_SISWA = "Siswa";
 
     protected $fillable = [
-        'username', 'jenis_kelamin', 'email', 'full_name', 'jurusan', 'angkatan', 'account_type', 'password', 'status', 'profile_picture', 'last_login_at',
+        'username', 'jenis_kelamin', 'email', 'full_name', 'kelas', 'angkatan', 'account_type', 'password', 'status', 'profile_picture', 'last_login_at',
         'last_login_ip'
     ];
 

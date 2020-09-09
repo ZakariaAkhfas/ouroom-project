@@ -65,7 +65,7 @@ class LoginController extends Controller
             'full_name' => 'required|max:255',
             'email' => 'required|max:255|unique:tbl_user',
             'angkatan' => 'required',
-            'jurusan' => 'required',
+            'kelas' => 'required',
             'username' => 'required|max:255|unique:tbl_user',
             'password' => 'required|min:6|confirmed',
         ]);
@@ -74,7 +74,7 @@ class LoginController extends Controller
         $user->email = $request->get('email');
         $user->jenis_kelamin = $request->get('jenis_kelamin');
         $user->angkatan = $request->get('angkatan');
-        $user->jurusan = $request->get('jurusan');
+        $user->kelas = $request->get('kelas');
         $user->username = $request->get('username');
         $user->password = $request->get('password');
         $user->account_type = 'Siswa';
